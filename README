@@ -1,0 +1,10 @@
+Where to find what:
+  ./data/     Blender files (environments)
+  ./src/      implementation of the nuclear radiation sensor
+  .           example scenes (simulation scenarios)	 
+
+How to run a simulation scene (executed in .):
+  morse run nuclear_radiation_sensor [scene].py
+
+How to debug a simulation scene:
+  morse run nuclear_radiation_sensor [scene].py debug
