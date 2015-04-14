@@ -23,7 +23,8 @@ if sys.argv[-1] == "debug":
 # add the robot (iRobot ATRV)
 robot = ATRV()
 robot.set_mass(50.0)
-robot.location = (65.0, 15.0, 0.0)
+# robot.location = (65.0, 15.0, 0.0)
+robot.location = (5.0, 5.0, 0.0)
 
 # add a motion controller
 motion = MotionVW()
@@ -58,13 +59,14 @@ thermometer.translate(x=0.2, z=0.75)
 robot.append(thermometer)
 
 # add the radiation sensor
-#radiation = NuclearRadiation()
-#radiation.add_stream("ros", "nuclear_radiation_sensor.middleware.ros.radiation.RadiationPublisher")
-#radiation.alter("", "nuclear_radiation_sensor.modifiers.gaussian_noise.GaussianNoiseModifier",
-#                fields_std_devs=[("dose_rate", 0.05),
-#                                 ("effective_dose_rate", 0.05)])
-#radiation.translate(x=0.25, z=0.75)
-#robot.append(radiation)
+radiation = NuclearRadiation()
+radiation.add_stream("ros", "nuclear_radiation_sensor.middleware.ros.radiation.RadiationPublisher")
+radiation.alter("", "nuclear_radiation_sensor.modifiers.gaussian_noise.GaussianNoiseModifier",
+                fields_std_devs=[("dose_rate", 0.05),
+                                 ("effective_dose_rate", 0.05)])
+radiation.translate(x=0.25, z=0.75)
+radiation.frequency(10)
+robot.append(radiation)
 
 
 # set 'fastmode' to True to switch to wireframe mode
