@@ -24,7 +24,7 @@ if sys.argv[-1] == "debug":
 robot = ATRV()
 robot.set_mass(50.0)
 # robot.location = (65.0, 15.0, 0.0)
-robot.location = (5.0, 5.0, 0.0)
+robot.location = (75.0, 16.0, 0.0)
 
 # add a motion controller
 motion = MotionVW()
